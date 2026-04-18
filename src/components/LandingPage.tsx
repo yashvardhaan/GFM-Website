@@ -232,9 +232,6 @@ export function HowItWorks() {
       <div className="grid md:grid-cols-3 gap-8">
         {steps.map((item, i) => (
           <FadeIn key={i} delay={i * 0.15} className="relative">
-            {i !== steps.length - 1 && (
-              <div className="hidden md:block absolute top-12 left-1/2 w-full h-[1px] bg-gradient-to-r from-solar/50 to-transparent dashed-line" style={{ borderTop: '2px dashed rgba(255,85,0,0.3)', background: 'none' }} />
-            )}
             <div className="relative z-10 glass-panel p-8 rounded-2xl h-full flex flex-col items-start border-white/5 hover:border-solar/30 transition-colors">
               <span className="text-5xl font-display font-bold text-white/5 mb-6">{item.step}</span>
               <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
