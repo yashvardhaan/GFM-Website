@@ -44,7 +44,6 @@ function Navbar() {
 
 const PrivacyText = () => (
   <div className="space-y-4 text-zinc-300 text-sm leading-relaxed">
-    <p>Last Updated: {new Date().toLocaleDateString()}</p>
     <h3 className="text-lg font-semibold text-white mt-6">1. Information We Collect</h3>
     <p>We collect information you provide directly to us, such as when you request a consultation, sign up for our services, or communicate with us. This may include your name, email address, phone number, and business details.</p>
     <h3 className="text-lg font-semibold text-white mt-6">2. How We Use Your Information</h3>
@@ -60,17 +59,82 @@ const PrivacyText = () => (
 
 const TermsText = () => (
   <div className="space-y-4 text-zinc-300 text-sm leading-relaxed">
-    <p>Last Updated: {new Date().toLocaleDateString()}</p>
-    <h3 className="text-lg font-semibold text-white mt-6">1. Acceptance of Terms</h3>
-    <p>By accessing or using the services provided by GFM Appointments, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.</p>
-    <h3 className="text-lg font-semibold text-white mt-6">2. Description of Service</h3>
-    <p>GFM Appointments provides lead generation and appointment setting services specifically designed for solar professionals and sales organizations.</p>
-    <h3 className="text-lg font-semibold text-white mt-6">3. Client Responsibilities</h3>
-    <p>Clients are expected to attend scheduled appointments promptly, maintain professional conduct with prospects, and provide accurate feedback on lead quality and show rates to help optimize campaigns.</p>
-    <h3 className="text-lg font-semibold text-white mt-6">4. Intellectual Property</h3>
-    <p>The service and its original content, campaigns, features, and functionality are and will remain the exclusive property of GFM Appointments and its licensors.</p>
-    <h3 className="text-lg font-semibold text-white mt-6">5. Limitation of Liability</h3>
-    <p>In no event shall GFM Appointments be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.</p>
+    <p>Welcome to GFM. These Terms & Conditions govern your use of our services. By working with us, you agree to the terms outlined below.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">1. Services</h3>
+    <p>GFM provides appointment-setting services for solar professionals and companies. We generate, qualify, and schedule homeowner appointments directly into your calendar based on agreed criteria.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">2. Appointment Qualification</h3>
+    <p>All appointments are pre-qualified based on criteria such as:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Homeownership</li>
+      <li>Credit profile</li>
+      <li>Utility bill thresholds</li>
+      <li>Roof condition & eligibility</li>
+    </ul>
+    <p>We prioritize quality over quantity. If a lead does not meet criteria, it will not be booked.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">3. No-Show & Replacement Policy</h3>
+    <p>We replace:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>No-show appointments</li>
+      <li>Disqualified leads</li>
+    </ul>
+    <p>Replacements are provided at no additional cost, ensuring consistent pipeline performance.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">4. Results Disclaimer</h3>
+    <p>While we aim to deliver high-quality appointments, we do not guarantee:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Sales closures</li>
+      <li>Revenue outcomes</li>
+    </ul>
+    <p>Closing performance depends on your sales process, offer, and follow-up.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">5. Client Responsibilities</h3>
+    <p>Clients are responsible for:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Attending scheduled appointments on time</li>
+      <li>Following up with leads</li>
+      <li>Providing accurate calendar availability</li>
+    </ul>
+    <p>Missed appointments by the client may not be eligible for replacement.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">6. Payment Terms</h3>
+    <p>All services are billed based on agreed pricing models (per appointment / per sit). Payments must be made on time as per the agreed terms. Failure to do so may result in service suspension.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">7. Communication</h3>
+    <p>We maintain clear and respectful communication with all prospects. Leads who do not qualify are handled professionally and declined respectfully.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">8. Data & Privacy</h3>
+    <p>All lead data is handled with care and used strictly for appointment-setting purposes. We do not sell or misuse client or prospect information.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">9. Limitation of Liability</h3>
+    <p>GFM is not liable for:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Missed sales opportunities</li>
+      <li>Revenue loss</li>
+      <li>External factors affecting deal closures</li>
+    </ul>
+    <p>Our responsibility is limited to delivering qualified appointments.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">10. Termination</h3>
+    <p>We reserve the right to pause or terminate services if:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Terms are violated</li>
+      <li>Payments are delayed</li>
+      <li>Misuse of leads is identified</li>
+    </ul>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">11. Updates</h3>
+    <p>These terms may be updated at any time. Continued use of our services means acceptance of the latest version.</p>
+    
+    <h3 className="text-lg font-semibold text-white mt-6">12. Contact</h3>
+    <p>For any questions, reach out to us directly.</p>
+    
+    <div className="mt-8 p-4 bg-white/5 rounded-lg border border-white/10">
+      <p className="font-semibold text-white mb-2">GFM — Premium appointment setting for serious solar professionals.</p>
+      <p>We help solar reps get 4–5 qualified homeowner appointments daily.</p>
+    </div>
   </div>
 );
 

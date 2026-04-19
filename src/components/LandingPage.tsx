@@ -247,6 +247,10 @@ export function HowItWorks() {
 export function ProofGallery() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isHoveredRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const manualScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const startXRef = useRef(0);
+  const scrollLeftPosRef = useRef(0);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -254,7 +258,7 @@ export function ProofGallery() {
 
     let animationId: number;
     const scroll = () => {
-      if (!isHoveredRef.current) {
+      if (!isHoveredRef.current && !isDraggingRef.current) {
         container.scrollLeft += 1;
         if (container.scrollLeft >= container.scrollWidth / 2) {
           container.scrollLeft -= container.scrollWidth / 2;
@@ -267,14 +271,49 @@ export function ProofGallery() {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDraggingRef.current = true;
+    if (scrollContainerRef.current) {
+      startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
+      scrollLeftPosRef.current = scrollContainerRef.current.scrollLeft;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isDraggingRef.current = false;
+    isHoveredRef.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeftPosRef.current - walk;
+  };
+
+  const pauseAutoScroll = () => {
+    isDraggingRef.current = true;
+    if (manualScrollTimeoutRef.current) clearTimeout(manualScrollTimeoutRef.current);
+    manualScrollTimeoutRef.current = setTimeout(() => {
+      isDraggingRef.current = false;
+    }, 800);
+  };
+
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
+      pauseAutoScroll();
       scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
+      pauseAutoScroll();
       scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
@@ -343,19 +382,20 @@ export function ProofGallery() {
           <div 
             ref={scrollContainerRef}
             onMouseEnter={() => isHoveredRef.current = true}
-            onMouseLeave={() => isHoveredRef.current = false}
+            onMouseLeave={handleMouseLeave}
             onTouchStart={() => isHoveredRef.current = true}
             onTouchEnd={() => isHoveredRef.current = false}
-            className="flex overflow-x-auto hide-scrollbar pb-4"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className="flex overflow-x-auto hide-scrollbar pb-4 cursor-grab active:cursor-grabbing"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[
               "https://drive.google.com/file/d/1zSb3rb1gM1JeXvHqwIk8oJ4IazywFQN7/preview",
-              "https://drive.google.com/file/d/1zSb3rb1gM1JeXvHqwIk8oJ4IazywFQN7/preview",
               "https://drive.google.com/file/d/1nTAb-guQbRL-z9TY_WgF2dZfIVQpRmnc/preview",
               "https://drive.google.com/file/d/1vbiCxpdobNp_7gqZFqfa3LIYhfMokqII/preview",
               "https://drive.google.com/file/d/1i3TG0rw-hdjk9KYY9UuaKS_VuaGZc67p/preview",
-              "https://drive.google.com/file/d/1zSb3rb1gM1JeXvHqwIk8oJ4IazywFQN7/preview",
               "https://drive.google.com/file/d/1zSb3rb1gM1JeXvHqwIk8oJ4IazywFQN7/preview",
               "https://drive.google.com/file/d/1nTAb-guQbRL-z9TY_WgF2dZfIVQpRmnc/preview",
               "https://drive.google.com/file/d/1vbiCxpdobNp_7gqZFqfa3LIYhfMokqII/preview",
@@ -365,11 +405,13 @@ export function ProofGallery() {
                 <div className="glass-panel overflow-hidden rounded-2xl h-[500px] flex items-center justify-center bg-white/5 border-white/10 hover:border-solar/30 transition-all group relative">
                   <iframe 
                     src={src}
-                    className="w-full h-full border-0 absolute inset-0 pointer-events-auto"
+                    className="w-full h-full border-0 absolute inset-0"
                     allow="autoplay; encrypted-media"
                     allowFullScreen
                     title={`Proof screenshot ${i + 1}`}
                   />
+                  {/* Invisible shield to capture drag events instead of iframe swallowing them */}
+                  <div className="absolute inset-0 z-10 bg-transparent w-full h-full"></div>
                 </div>
               </FadeIn>
             ))}
@@ -390,6 +432,10 @@ export function ProofGallery() {
 export function SocialProof() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isHoveredRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const manualScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const startXRef = useRef(0);
+  const scrollLeftPosRef = useRef(0);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -397,7 +443,7 @@ export function SocialProof() {
 
     let animationId: number;
     const scroll = () => {
-      if (!isHoveredRef.current) {
+      if (!isHoveredRef.current && !isDraggingRef.current) {
         container.scrollLeft += 1;
         if (container.scrollLeft >= container.scrollWidth / 2) {
           container.scrollLeft -= container.scrollWidth / 2;
@@ -410,14 +456,49 @@ export function SocialProof() {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDraggingRef.current = true;
+    if (scrollContainerRef.current) {
+      startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
+      scrollLeftPosRef.current = scrollContainerRef.current.scrollLeft;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isDraggingRef.current = false;
+    isHoveredRef.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeftPosRef.current - walk;
+  };
+
+  const pauseAutoScroll = () => {
+    isDraggingRef.current = true;
+    if (manualScrollTimeoutRef.current) clearTimeout(manualScrollTimeoutRef.current);
+    manualScrollTimeoutRef.current = setTimeout(() => {
+      isDraggingRef.current = false;
+    }, 800);
+  };
+
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
+      pauseAutoScroll();
       scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
+      pauseAutoScroll();
       scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
@@ -440,10 +521,13 @@ export function SocialProof() {
           <div 
             ref={scrollContainerRef}
             onMouseEnter={() => isHoveredRef.current = true}
-            onMouseLeave={() => isHoveredRef.current = false}
+            onMouseLeave={handleMouseLeave}
             onTouchStart={() => isHoveredRef.current = true}
             onTouchEnd={() => isHoveredRef.current = false}
-            className="flex overflow-x-auto hide-scrollbar pb-4"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className="flex overflow-x-auto hide-scrollbar pb-4 cursor-grab active:cursor-grabbing"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[
