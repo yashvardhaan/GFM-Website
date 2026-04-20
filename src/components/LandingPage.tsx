@@ -244,23 +244,25 @@ export function HowItWorks() {
   );
 }
 
-function VideoCard({ id, delay, isHorizontal = false }: { id: string, delay: number, isHorizontal?: boolean }) {
+function VideoCard({ youtubeId, delay, isHorizontal = false }: { youtubeId: string, delay: number, isHorizontal?: boolean }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${id}/maxresdefault.jpg`);
+  const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`);
 
   return (
     <FadeIn delay={delay}>
-      <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group bg-black/60 shadow-xl">
+      <div 
+        className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group bg-black shadow-xl cursor-pointer"
+        onClick={() => !isPlaying && setIsPlaying(true)}
+      >
         {!isPlaying ? (
-          <div 
-            className="absolute inset-0 cursor-pointer flex items-center justify-center group overflow-hidden"
-            onClick={() => setIsPlaying(true)}
-          >
+          <div className="absolute inset-0 flex items-center justify-center group overflow-hidden bg-black">
             <img 
               src={imgSrc} 
               alt="Testimonial thumbnail"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-              onError={() => setImgSrc(`https://img.youtube.com/vi/${id}/hqdefault.jpg`)}
+              className={`w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100 ${isHorizontal ? 'object-contain scale-100' : 'object-cover'}`}
+              onError={(e) => {
+                e.currentTarget.src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+              }}
             />
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
             <div className="absolute z-10 w-16 h-16 rounded-full bg-solar text-black flex items-center justify-center shadow-[0_0_30px_rgba(255,204,51,0.4)] transform group-hover:scale-110 transition-transform duration-300">
@@ -268,10 +270,10 @@ function VideoCard({ id, delay, isHorizontal = false }: { id: string, delay: num
             </div>
           </div>
         ) : (
-          <div className="absolute inset-0 bg-black flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-black overflow-hidden">
             <iframe 
-              src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1&controls=0&showinfo=0&fs=0`}
-              className={`border-0 max-w-none ${isHorizontal ? 'w-[325%] h-full' : 'w-[105%] h-[105%] md:w-[102%] md:h-[102%]'}`}
+              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=0&rel=0&modestbranding=1&playsinline=1`}
+              className="w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               title="Testimonial Video"
@@ -366,10 +368,11 @@ export function ProofGallery() {
         </FadeIn>
         
         {/* Custom Video Grid Overlay */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <VideoCard id="CJi4L_quv5c" delay={0.1} isHorizontal={true} />
-          <VideoCard id="0CJC6cMY03Q" delay={0.2} />
-          <VideoCard id="x5HwnTCWs2Y" delay={0.3} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-24">
+          <VideoCard youtubeId="0I_fnM9zILo" delay={0.1} isHorizontal={true} />
+          <VideoCard youtubeId="A6rVdirNqDg" delay={0.2} isHorizontal={true} />
+          <VideoCard youtubeId="5hYKwaUrBe0" delay={0.3} />
+          <VideoCard youtubeId="BXrPHg9FIXA" delay={0.4} />
         </div>
 
         <FadeIn className="text-center mb-16">
