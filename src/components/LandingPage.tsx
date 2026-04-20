@@ -531,24 +531,24 @@ export function SocialProof() {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[
-              { quote: "Added $150k in pipeline in our first 30 days. The show-up rate on these appointments is ridiculous.", author: "Michael T.", role: "Independent Solar Consultant" },
-              { quote: "I tired 3 different Facebook ad agencies before this. These guys actually book the meetings. I just close.", author: "Sarah W.", role: "SunRise Energy" },
-              { quote: "We've scaled to a completely new territory relying 100% on their booked appointments.", author: "David P.", role: "Elite Solar Providers" },
-              { quote: "The quality of these leads is unmatched. We practically doubled our close rate because the homeowners are actually expecting us.", author: "James R.", role: "BrightHorizon" },
-              { quote: "I was skeptical at first, but having my calendar filled with pre-qualified sits has completely changed my day-to-day.", author: "Elena G.", role: "Solar Sales Specialist" },
-              { quote: "This is the most reliable appointment generation engine we've ever plugged into our business. The ROI has been incredible.", author: "Marcus B.", role: "SunVolt Partners" },
-              { quote: "Consistent, high-intent appointments week after week. If you're serious about scaling your solar team, this is the way.", author: "Jessica L.", role: "EcoPower" },
-              { quote: "I've tried buying shared leads before and it was a race to the bottom. These exclusive appointments convert like crazy.", author: "Chris H.", role: "Independent Consultant" },
-              { quote: "They don't just send leads, they send ready-to-buy homeowners. We've hired 5 new reps just to handle the volume.", author: "Amanda K.", role: "SolarStream" },
-              { quote: "Added $150k in pipeline in our first 30 days. The show-up rate on these appointments is ridiculous.", author: "Michael T.", role: "Independent Solar Consultant" },
-              { quote: "I tired 3 different Facebook ad agencies before this. These guys actually book the meetings. I just close.", author: "Sarah W.", role: "SunRise Energy" },
-              { quote: "We've scaled to a completely new territory relying 100% on their booked appointments.", author: "David P.", role: "Elite Solar Providers" },
-              { quote: "The quality of these leads is unmatched. We practically doubled our close rate because the homeowners are actually expecting us.", author: "James R.", role: "BrightHorizon" },
-              { quote: "I was skeptical at first, but having my calendar filled with pre-qualified sits has completely changed my day-to-day.", author: "Elena G.", role: "Solar Sales Specialist" },
-              { quote: "This is the most reliable appointment generation engine we've ever plugged into our business. The ROI has been incredible.", author: "Marcus B.", role: "SunVolt Partners" },
-              { quote: "Consistent, high-intent appointments week after week. If you're serious about scaling your solar team, this is the way.", author: "Jessica L.", role: "EcoPower" },
-              { quote: "I've tried buying shared leads before and it was a race to the bottom. These exclusive appointments convert like crazy.", author: "Chris H.", role: "Independent Consultant" },
-              { quote: "They don't just send leads, they send ready-to-buy homeowners. We've hired 5 new reps just to handle the volume.", author: "Amanda K.", role: "SolarStream" }
+              { quote: "GFM completely changed my pipeline. I went from chasing leads daily to having 4–5 qualified appointments booked straight into my calendar. Closed 3 deals in my first 10 sits. These guys know exactly what they’re doing.", author: "Mike J.", role: "Powur", photoId: "1kPEy4y12gtDfiTSTU38iynH0ClqhytRA" },
+              { quote: "Honestly, I was skeptical at first. Tried other lead gen companies before and got burned. But these guys actually delivers what they promise, real homeowners, real intent. Already ROI positive in week 2.", author: "Derek H.", role: "Reach", photoId: "1XjANW9xF9raIUNJdWExMNM686oDkU3wE" },
+              { quote: "Show-up rate has been solid. That was always my biggest issue before. Now when I book time, people actually show up ready to talk.", author: "Ivan", role: "Horizon Energy", photoId: "1ZxhVe6nmWkATPNYX8exhWVJZ5SGwYo-j" },
+              { quote: "I wasn’t expecting much at first. But the appointments started coming in within a few days, and they were actually qualified. Closed 2 deals in my first week working with them.", author: "Daniel B.", role: "Sunrun", photoId: "1vKhqX0qNvUfIdw5nYPkwgLeZdjL0WCoc" },
+              { quote: "Leads are pre-qualified better than most vendors we’ve used. Credit, bill size, and homeownership checks are actually being done. Still, you need a good closer—this isn’t magic leads, it’s a real pipeline.", author: "Mark S.", role: "Solar Professional", photoId: "1I8_u560hQjzffKjNp0FOeZs-ca-M0e-K" },
+              { quote: "If you’re expecting 10/10 perfect homeowners ready to sign, that’s not how solar works. But if you know how to close, these guys give you enough at-bats to win consistently.", author: "Anthony W.", role: "Solar Professional", photoId: "13UlVgIPiO_zNiec4qCvkr42-FwfQGAFh" },
+              { quote: "We tested them alongside another lead vendor. Their cost per acquisition ended up lower for us because of the show-up rate and replacements. That made the difference.", author: "Brian K.", role: "Solar Professional", photoId: "1gIGjnHS3AGBqkccK5vLstTUuNQ575Pp-" },
+              { quote: "Appointments are legit. People actually know why we’re coming. That alone saves us a lot of time compared to cold knocking.", author: "Ethan B.", role: "Solar Professional", photoId: null },
+              { quote: "Communication is solid. If something’s off with a lead, they actually fix it instead of arguing. That’s rare in this space.", author: "Kevin A.", role: "Solar Professional", photoId: null },
+              { quote: "GFM completely changed my pipeline. I went from chasing leads daily to having 4–5 qualified appointments booked straight into my calendar. Closed 3 deals in my first 10 sits. These guys know exactly what they’re doing.", author: "Mike J.", role: "Powur", photoId: "1kPEy4y12gtDfiTSTU38iynH0ClqhytRA" },
+              { quote: "Honestly, I was skeptical at first. Tried other lead gen companies before and got burned. But these guys actually delivers what they promise, real homeowners, real intent. Already ROI positive in week 2.", author: "Derek H.", role: "Reach", photoId: "1XjANW9xF9raIUNJdWExMNM686oDkU3wE" },
+              { quote: "Show-up rate has been solid. That was always my biggest issue before. Now when I book time, people actually show up ready to talk.", author: "Ivan", role: "Horizon Energy", photoId: "1ZxhVe6nmWkATPNYX8exhWVJZ5SGwYo-j" },
+              { quote: "I wasn’t expecting much at first. But the appointments started coming in within a few days, and they were actually qualified. Closed 2 deals in my first week working with them.", author: "Daniel B.", role: "Sunrun", photoId: "1vKhqX0qNvUfIdw5nYPkwgLeZdjL0WCoc" },
+              { quote: "Leads are pre-qualified better than most vendors we’ve used. Credit, bill size, and homeownership checks are actually being done. Still, you need a good closer—this isn’t magic leads, it’s a real pipeline.", author: "Mark S.", role: "Solar Professional", photoId: "1I8_u560hQjzffKjNp0FOeZs-ca-M0e-K" },
+              { quote: "If you’re expecting 10/10 perfect homeowners ready to sign, that’s not how solar works. But if you know how to close, these guys give you enough at-bats to win consistently.", author: "Anthony W.", role: "Solar Professional", photoId: "13UlVgIPiO_zNiec4qCvkr42-FwfQGAFh" },
+              { quote: "We tested them alongside another lead vendor. Their cost per acquisition ended up lower for us because of the show-up rate and replacements. That made the difference.", author: "Brian K.", role: "Solar Professional", photoId: "1gIGjnHS3AGBqkccK5vLstTUuNQ575Pp-" },
+              { quote: "Appointments are legit. People actually know why we’re coming. That alone saves us a lot of time compared to cold knocking.", author: "Ethan B.", role: "Solar Professional", photoId: null },
+              { quote: "Communication is solid. If something’s off with a lead, they actually fix it instead of arguing. That’s rare in this space.", author: "Kevin A.", role: "Solar Professional", photoId: null }
             ].map((testimonial, i) => (
               <FadeIn key={i} delay={0} className="w-[85vw] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 mr-6 glass-panel p-8 rounded-2xl flex flex-col justify-between">
                 <div>
@@ -558,8 +558,17 @@ export function SocialProof() {
                   <p className="text-lg italic text-zinc-300 mb-8 flex-grow">"{testimonial.quote}"</p>
                 </div>
                 <div className="flex items-center gap-4 mt-auto">
-                  <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden shrink-0">
-                     <img src={`https://i.pravatar.cc/150?img=${(i % 9) + 30}`} alt={testimonial.author} className="w-full h-full object-cover" />
+                  <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden shrink-0 flex items-center justify-center border border-white/10 relative">
+                     {testimonial.photoId ? (
+                       <img 
+                         src={`https://drive.google.com/thumbnail?id=${testimonial.photoId}&sz=w150-h150`} 
+                         alt={testimonial.author} 
+                         className="w-full h-full object-cover" 
+                         referrerPolicy="no-referrer" 
+                       />
+                     ) : (
+                       <span className="text-xl font-semibold text-solar">{testimonial.author.charAt(0)}</span>
+                     )}
                   </div>
                   <div>
                     <h4 className="font-semibold">{testimonial.author}</h4>
