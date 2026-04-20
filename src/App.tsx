@@ -53,7 +53,7 @@ const PrivacyText = () => (
     <h3 className="text-lg font-semibold text-white mt-6">4. Data Security</h3>
     <p>We implement appropriate technical and organizational security measures to protect your information against unauthorized access, alteration, disclosure, or destruction.</p>
     <h3 className="text-lg font-semibold text-white mt-6">5. Contact Us</h3>
-    <p>If you have any questions about this Privacy Policy, please contact us at support@gfmappointments.com.</p>
+    <p>If you have any questions about this Privacy Policy, please contact us.</p>
   </div>
 );
 
