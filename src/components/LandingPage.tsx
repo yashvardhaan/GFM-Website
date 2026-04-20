@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   ArrowRight, CheckCircle2, Zap, Target, Calendar, PhoneCall, 
-  TrendingUp, ShieldCheck, Mail, Sun, X, ChevronDown, ChevronRight, ChevronLeft
+  TrendingUp, ShieldCheck, Mail, Sun, X, ChevronDown, ChevronRight, ChevronLeft, Play
 } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: string | number }) => (
@@ -244,6 +244,45 @@ export function HowItWorks() {
   );
 }
 
+function VideoCard({ id, delay, isHorizontal = false }: { id: string, delay: number, isHorizontal?: boolean }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${id}/maxresdefault.jpg`);
+
+  return (
+    <FadeIn delay={delay}>
+      <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group bg-black/60 shadow-xl">
+        {!isPlaying ? (
+          <div 
+            className="absolute inset-0 cursor-pointer flex items-center justify-center group overflow-hidden"
+            onClick={() => setIsPlaying(true)}
+          >
+            <img 
+              src={imgSrc} 
+              alt="Testimonial thumbnail"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+              onError={() => setImgSrc(`https://img.youtube.com/vi/${id}/hqdefault.jpg`)}
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+            <div className="absolute z-10 w-16 h-16 rounded-full bg-solar text-black flex items-center justify-center shadow-[0_0_30px_rgba(255,204,51,0.4)] transform group-hover:scale-110 transition-transform duration-300">
+              <Play className="w-8 h-8 ml-1" fill="currentColor" />
+            </div>
+          </div>
+        ) : (
+          <div className="absolute inset-0 bg-black flex items-center justify-center overflow-hidden">
+            <iframe 
+              src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1&controls=0&showinfo=0&fs=0`}
+              className={`border-0 max-w-none ${isHorizontal ? 'w-[325%] h-full' : 'w-[105%] h-[105%] md:w-[102%] md:h-[102%]'}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Testimonial Video"
+            />
+          </div>
+        )}
+      </div>
+    </FadeIn>
+  );
+}
+
 export function ProofGallery() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isHoveredRef = useRef(false);
@@ -326,46 +365,11 @@ export function ProofGallery() {
           <p className="text-zinc-400 text-lg">Don't take our word for it. Hear directly from our partners.</p>
         </FadeIn>
         
-        {/* Playable Links to Google Drive Testimonials */}
+        {/* Custom Video Grid Overlay */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <FadeIn delay={0.1}>
-            <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group">
-              <iframe 
-                src="https://www.youtube.com/embed/CJi4L_quv5c?rel=0&modestbranding=1&playsinline=1&controls=1&widget_referrer=growfurthermarketing.com"
-                className="w-full h-full border-0 absolute inset-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-                title="Testimonial 1"
-              />
-            </div>
-          </FadeIn>
-          
-          <FadeIn delay={0.2}>
-            <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group">
-              <iframe 
-                src="https://www.youtube.com/embed/0CJC6cMY03Q?rel=0&modestbranding=1&playsinline=1&controls=1&widget_referrer=growfurthermarketing.com"
-                className="w-full h-full border-0 absolute inset-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-                title="Testimonial 2"
-              />
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group">
-              <iframe 
-                src="https://www.youtube.com/embed/x5HwnTCWs2Y?rel=0&modestbranding=1&playsinline=1&controls=1&widget_referrer=growfurthermarketing.com"
-                className="w-full h-full border-0 absolute inset-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-                title="Testimonial 3"
-              />
-            </div>
-          </FadeIn>
+          <VideoCard id="CJi4L_quv5c" delay={0.1} isHorizontal={true} />
+          <VideoCard id="0CJC6cMY03Q" delay={0.2} />
+          <VideoCard id="x5HwnTCWs2Y" delay={0.3} />
         </div>
 
         <FadeIn className="text-center mb-16">
