@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, ShieldCheck, HelpCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const FadeInOut = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: string | number }) => (
   <motion.div
@@ -78,8 +79,27 @@ export function FAQ() {
     { question: "How quickly can we get started?", answer: "We can launch within 3-4 business days. Once we align on targeting and availability, we start booking appointments directly into your calendar." }
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section id="faq" className="py-24 px-6 max-w-3xl mx-auto">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      </Helmet>
+      
       <FadeInOut className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
       </FadeInOut>

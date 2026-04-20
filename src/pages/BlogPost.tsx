@@ -17,11 +17,40 @@ export function BlogPost() {
     );
   }
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://growfurthermarketing.com/blog/${post.slug}`
+    },
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": "https://growfurthermarketing.com/og-compliant.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Grow Further Marketing",
+      "url": "https://growfurthermarketing.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Grow Further Marketing",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://growfurthermarketing.com/favicon.svg"
+      }
+    },
+    "datePublished": new Date(post.date).toISOString()
+  };
+
   return (
     <>
       <Helmet>
         <title>{post.title} | GFM</title>
         <meta name="description" content={post.excerpt} />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
       </Helmet>
 
       <main className="pt-32 pb-20 px-6 max-w-3xl mx-auto">
