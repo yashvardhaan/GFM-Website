@@ -4,18 +4,22 @@
  */
 
 import React, { useState } from 'react';
-import { Hero, Problem, Solution, HowItWorks, SocialProof, ProofGallery } from './components/LandingPage';
-import { Offer, FAQ, FinalCTA } from './components/LandingPage2';
-import { DeliverablesPanel } from './components/DeliverablesPanel';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Location } from './pages/Location';
+import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
 import { LogoHorizontal } from './components/Logo';
 import { X } from 'lucide-react';
 
 function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between overflow-visible">
         <div 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => { navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="flex items-center cursor-pointer hover:opacity-90 transition-opacity shrink-0"
         >
           <LogoHorizontal className="h-10 sm:h-11 md:h-14 w-auto text-white drop-shadow-md z-50 pointer-events-none" />
@@ -23,9 +27,9 @@ function Navbar() {
         
         <div className="flex items-center gap-8 shrink-0">
           <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
-            <a href="#results" className="hover:text-white transition-colors">Results</a>
-            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+            <Link to="/#how-it-works" className="hover:text-white transition-colors">How it Works</Link>
+            <Link to="/#results" className="hover:text-white transition-colors">Results</Link>
+            <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
           </div>
           
           <a 
@@ -173,23 +177,55 @@ function LegalModal({ title, isOpen, onClose }: { title: string, isOpen: boolean
 function Footer() {
   const [modalContent, setModalContent] = useState<string | null>(null);
 
+  const popularStates = ['texas', 'california', 'florida', 'nevada', 'arizona', 'colorado'];
+
   return (
     <>
-      <footer className="py-12 border-t border-white/10 text-zinc-500 text-sm">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-          <div className="w-full md:w-1/3 flex justify-center md:justify-start">
-            <div className="flex items-center shrink-0">
-              <LogoHorizontal className="h-10 sm:h-11 md:h-14 w-auto text-zinc-400 opacity-80 hover:opacity-100 hover:text-white transition-all drop-shadow-sm pointer-events-none" />
-            </div>
+      <footer className="py-16 border-t border-white/10 text-zinc-500 text-sm bg-black/50">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div className="col-span-1 md:col-span-1">
+            <LogoHorizontal className="h-10 w-auto text-zinc-400 opacity-80 mb-6 drop-shadow-sm pointer-events-none" />
+            <p className="text-zinc-400 mb-6 max-w-sm">
+              We help solar reps get 4–5 qualified homeowner appointments daily. Stop prospecting and start closing.
+            </p>
           </div>
           
-          <div className="w-full md:w-1/3 flex justify-center text-center">
+          <div>
+            <h4 className="text-white font-semibold mb-4">Top Markets</h4>
+            <ul className="space-y-2">
+              {popularStates.map(state => (
+                <li key={state}>
+                  <Link to={`/locations/${state}`} className="hover:text-solar transition-colors capitalize">
+                    Solar Leads in {state}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              <li><Link to="/blog" className="hover:text-solar transition-colors">Solar Growth Blog</Link></li>
+              <li><Link to="/#how-it-works" className="hover:text-solar transition-colors">How it Works</Link></li>
+              <li><Link to="/#faq" className="hover:text-solar transition-colors">FAQ</Link></li>
+              <li><a href="https://calendly.com/growfurtherconsulting/strategy-calls-with-solar-pros" className="hover:text-solar transition-colors">Book a Strategy Call</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">Legal & Contact</h4>
+            <ul className="space-y-2">
+              <li><button onClick={() => setModalContent('Privacy Policy')} className="hover:text-solar transition-colors">Privacy Policy</button></li>
+              <li><button onClick={() => setModalContent('Terms of Service')} className="hover:text-solar transition-colors">Terms of Service</button></li>
+              <li><a href="mailto:contact@growfurthermarketing.com" className="hover:text-solar transition-colors">contact@growfurthermarketing.com</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-center md:text-left">
             © {new Date().getFullYear()} GFM Appointments. All rights reserved.
-          </div>
-          
-          <div className="w-full md:w-1/3 flex justify-center md:justify-end gap-6">
-            <button onClick={() => setModalContent('Privacy Policy')} className="hover:text-white transition">Privacy Policy</button>
-            <button onClick={() => setModalContent('Terms of Service')} className="hover:text-white transition">Terms of Service</button>
           </div>
         </div>
       </footer>
@@ -207,20 +243,14 @@ export default function App() {
     <div className="min-h-screen bg-black text-white selection:bg-solar/30">
       <Navbar />
       
-      <main>
-        <Hero />
-        <Problem />
-        <Solution />
-        <HowItWorks />
-        <ProofGallery />
-        <SocialProof />
-        <Offer />
-        <FAQ />
-        <FinalCTA />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/locations/:state" element={<Location />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
 
       <Footer />
-      <DeliverablesPanel />
     </div>
   );
 }
