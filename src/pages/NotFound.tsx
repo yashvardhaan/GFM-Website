@@ -28,7 +28,7 @@ export function NotFound() {
         </div>
         
         <div className="mt-16">
-          <p className="text-zinc-600 font-medium mb-4 uppercase tracking-widest text-sm">Top Markets</p>
+          <p className="text-zinc-600 font-medium mb-4 uppercase tracking-widest text-sm">Nationwide Coverage (All 50 States)</p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link to="/locations/texas" className="text-zinc-400 hover:text-solar transition-colors">Texas</Link>
             <Link to="/locations/california" className="text-zinc-400 hover:text-solar transition-colors">California</Link>

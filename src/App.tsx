@@ -192,7 +192,8 @@ function Footer() {
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Top Markets</h4>
+            <h4 className="text-white font-semibold mb-4">Nationwide Coverage</h4>
+            <p className="text-zinc-400 text-sm mb-4">We book appointments in all 50 US states. Our top active markets include:</p>
             <ul className="space-y-2">
               {popularStates.map(state => (
                 <li key={state}>

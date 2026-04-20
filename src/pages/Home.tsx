@@ -10,8 +10,11 @@ function ServiceAreas() {
   return (
     <section className="py-24 px-6 max-w-5xl mx-auto border-t border-white/5">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4">Top Solar Markets We Serve</h2>
-        <p className="text-zinc-400">Discover exclusive solar appointments in the highest-performing states.</p>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-solar/10 text-solar text-xs font-bold uppercase tracking-wider mb-4">
+          Nationwide Coverage
+        </div>
+        <h2 className="text-3xl font-bold mb-4">We Generate Leads in All 50 States.</h2>
+        <p className="text-zinc-400 max-w-2xl mx-auto">Wherever your solar team is located in the US, we have you covered. Here is a look at a few of our most highly active markets.</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {states.map(state => (
