@@ -21,7 +21,7 @@ function Navbar() {
           <LogoHorizontal className="h-10 sm:h-11 md:h-14 w-auto text-white drop-shadow-md z-50 pointer-events-none" />
         </div>
         
-        <div className="flex items-center gap-8 shrink-0 mr-0 sm:mr-4 md:mr-[13%]">
+        <div className="flex items-center gap-8 shrink-0">
           <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-400">
             <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
             <a href="#results" className="hover:text-white transition-colors">Results</a>
