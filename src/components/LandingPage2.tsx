@@ -72,6 +72,10 @@ export function FAQ() {
     { question: "Are these leads exclusive?", answer: "Yes. 100% exclusive. An appointment booked on your calendar is never shared, sold, or distributed to any other solar rep." },
     { question: "What if the homeowner doesn't show up?", answer: "We have an extensive email and SMS reminder sequence to ensure high show-up rates. However, if a no-show does happen, we automatically run a sequences to reschedule them. You only pay for appointments that occur." },
     { question: "How do you verify they qualify for solar?", answer: "We use public property records to identify homeownership and roof suitability. On the call, our SDRs confirm they own the home, their electric bill is above the threshold, and they haven't recently gone solar." },
+    { question: "How many deals can I expect from your appointments?", answer: "On average, our clients close 3-4 deals for every 10 qualified sits. Results may vary based on your closing ability, but we focus on delivering high-intent prospects." },
+    { question: "What makes you different from other lead gen companies?", answer: "We don’t just send leads — we book confirmed, qualified appointments directly on your calendar. No chasing, no guessing, just ready-to-close homeowners." },
+    { question: "Can I choose my target areas and criteria?", answer: "Yes. We tailor campaigns based on your preferred locations, homeowner profile, and deal size so you get the right opportunities." },
+    { question: "How quickly can we get started?", answer: "We can launch within 3-4 business days. Once we align on targeting and availability, we start booking appointments directly into your calendar." }
   ];
 
   return (
