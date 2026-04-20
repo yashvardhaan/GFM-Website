@@ -12,11 +12,31 @@ export function Location() {
   const { state } = useParams<{ state: string }>();
   const stateName = state ? formatStateName(state) : 'Your Area';
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://growfurthermarketing.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": stateName,
+      "item": `https://growfurthermarketing.com/locations/${state}`
+    }]
+  };
+
   return (
     <>
       <Helmet>
         <title>Exclusive Solar Leads & Appointments in {stateName} | GFM</title>
         <meta name="description" content={`Stop buying shared solar leads in ${stateName}. We provide exclusive, pre-qualified solar appointments booked directly into your calendar for solar companies in ${stateName}.`} />
+        <link rel="canonical" href={`https://growfurthermarketing.com/locations/${state}`} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <main className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden max-w-7xl mx-auto">

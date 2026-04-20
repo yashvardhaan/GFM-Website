@@ -43,13 +43,38 @@ export function BlogPost() {
     "datePublished": new Date(post.date).toISOString()
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://growfurthermarketing.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://growfurthermarketing.com/blog"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": post.title,
+      "item": `https://growfurthermarketing.com/blog/${post.slug}`
+    }]
+  };
+
   return (
     <>
       <Helmet>
         <title>{post.title} | GFM</title>
         <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://growfurthermarketing.com/blog/${post.slug}`} />
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
 

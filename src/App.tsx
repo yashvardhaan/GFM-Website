@@ -9,6 +9,7 @@ import { Home } from './pages/Home';
 import { Location } from './pages/Location';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
+import { NotFound } from './pages/NotFound';
 import { LogoHorizontal } from './components/Logo';
 import { X } from 'lucide-react';
 
@@ -248,6 +249,7 @@ export default function App() {
         <Route path="/locations/:state" element={<Location />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />

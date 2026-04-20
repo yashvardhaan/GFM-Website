@@ -25,11 +25,31 @@ export const BLOG_POSTS = [
 ];
 
 export function Blog() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://growfurthermarketing.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://growfurthermarketing.com/blog"
+    }]
+  };
+
   return (
     <>
       <Helmet>
         <title>Solar Sales Tips & Industry Insights | GFM Blog</title>
         <meta name="description" content="Learn how to close more solar deals, generate exclusive leads, and scale your solar business with our expert insights." />
+        <link rel="canonical" href="https://growfurthermarketing.com/blog" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <main className="pt-32 pb-20 px-6 max-w-5xl mx-auto min-h-[80vh]">

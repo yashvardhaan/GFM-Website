@@ -335,6 +335,7 @@ export function ProofGallery() {
                 className="w-full h-full border-0 absolute inset-0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
+                loading="lazy"
                 title="Testimonial 1"
               />
             </div>
@@ -347,6 +348,7 @@ export function ProofGallery() {
                 className="w-full h-full border-0 absolute inset-0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
+                loading="lazy"
                 title="Testimonial 2"
               />
             </div>
@@ -359,6 +361,7 @@ export function ProofGallery() {
                 className="w-full h-full border-0 absolute inset-0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
+                loading="lazy"
                 title="Testimonial 3"
               />
             </div>
@@ -408,6 +411,7 @@ export function ProofGallery() {
                     className="w-full h-full border-0 absolute inset-0"
                     allow="autoplay; encrypted-media"
                     allowFullScreen
+                    loading="lazy"
                     title={`Proof screenshot ${i + 1}`}
                   />
                   {/* Invisible shield to capture drag events instead of iframe swallowing them */}
@@ -564,7 +568,8 @@ export function SocialProof() {
                          src={`https://drive.google.com/thumbnail?id=${testimonial.photoId}&sz=w150-h150`} 
                          alt={testimonial.author} 
                          className="w-full h-full object-cover" 
-                         referrerPolicy="no-referrer" 
+                         referrerPolicy="no-referrer"
+                         loading="lazy" 
                        />
                      ) : (
                        <span className="text-xl font-semibold text-solar">{testimonial.author.charAt(0)}</span>
