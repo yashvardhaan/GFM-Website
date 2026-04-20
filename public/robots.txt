@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://growfurthermarketing.com/sitemap.xml
