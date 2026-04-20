@@ -331,9 +331,9 @@ export function ProofGallery() {
           <FadeIn delay={0.1}>
             <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group">
               <iframe 
-                src="https://drive.google.com/file/d/1onGNu3mB7kqIo0gi1MPbEth-UP7z18JH/preview"
+                src="https://www.youtube.com/embed/CJi4L_quv5c?rel=0&modestbranding=1&playsinline=1&controls=1&widget_referrer=growfurthermarketing.com"
                 className="w-full h-full border-0 absolute inset-0"
-                allow="autoplay; encrypted-media"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"
                 title="Testimonial 1"
@@ -344,9 +344,9 @@ export function ProofGallery() {
           <FadeIn delay={0.2}>
             <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group">
               <iframe 
-                src="https://drive.google.com/file/d/1GSOb20XUutN1jYK1yxS7cXlgDsNO6pw3/preview"
+                src="https://www.youtube.com/embed/0CJC6cMY03Q?rel=0&modestbranding=1&playsinline=1&controls=1&widget_referrer=growfurthermarketing.com"
                 className="w-full h-full border-0 absolute inset-0"
-                allow="autoplay; encrypted-media"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"
                 title="Testimonial 2"
@@ -357,9 +357,9 @@ export function ProofGallery() {
           <FadeIn delay={0.3}>
             <div className="glass-panel overflow-hidden rounded-2xl aspect-[9/16] max-h-[600px] mx-auto relative group">
               <iframe 
-                src="https://drive.google.com/file/d/1iPs6Rklj59AsW7zKqZZ8M00kllfkUdFa/preview"
+                src="https://www.youtube.com/embed/x5HwnTCWs2Y?rel=0&modestbranding=1&playsinline=1&controls=1&widget_referrer=growfurthermarketing.com"
                 className="w-full h-full border-0 absolute inset-0"
-                allow="autoplay; encrypted-media"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"
                 title="Testimonial 3"

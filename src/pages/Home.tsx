@@ -1,7 +1,6 @@
 import React from 'react';
 import { Hero, Problem, Solution, HowItWorks, SocialProof, ProofGallery } from '../components/LandingPage';
 import { Offer, FAQ, FinalCTA } from '../components/LandingPage2';
-import { DeliverablesPanel } from '../components/DeliverablesPanel';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -67,7 +66,6 @@ export function Home() {
         <ServiceAreas />
         <FinalCTA />
       </main>
-      <DeliverablesPanel />
     </>
   );
 }
