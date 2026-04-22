@@ -368,11 +368,10 @@ export function ProofGallery() {
         </FadeIn>
         
         {/* Custom Video Grid Overlay */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-24">
+        <div className="grid md:grid-cols-3 gap-8 mb-24">
           <VideoCard youtubeId="0I_fnM9zILo" delay={0.1} isHorizontal={true} />
           <VideoCard youtubeId="A6rVdirNqDg" delay={0.2} isHorizontal={true} />
           <VideoCard youtubeId="5hYKwaUrBe0" delay={0.3} />
-          <VideoCard youtubeId="BXrPHg9FIXA" delay={0.4} />
         </div>
 
         <FadeIn className="text-center mb-16">
